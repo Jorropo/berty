@@ -56,6 +56,14 @@ jobs:
           working-directory: go
           args: --timeout=10m
           # only-new-issues: true
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.15.2
+      - name: Depaware Check
+        run: |
+          cd go
+          make depaware.check
 
   unstable-tests:
     runs-on: ubuntu-latest
